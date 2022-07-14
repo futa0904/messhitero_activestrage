@@ -1,0 +1,13 @@
+<h2>ユーザー詳細！！</h2>
+<h4>名前</h4>
+<%= @user.name %>
+<h4>プロフィール画像</h4>
+<%= image_tag @user.get_profile_image(100, 100) %>
+<% if @user == current_user %>
+<p><%= link_to "プロフ編集", edit_user_path(@user.id) %></p>
+<% end %>
+
+<h2>そのユーザの投稿たち</h2>
+
+
+<%= render 'list', post_images: @post_images %>
